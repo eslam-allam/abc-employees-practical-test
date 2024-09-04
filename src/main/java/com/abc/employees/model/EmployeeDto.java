@@ -4,19 +4,34 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+
 /**
  * EmployeeDto
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonDeserialize(builder = EmployeeDto.Builder.class)
 public class EmployeeDto {
-
+    
     private Long id;
+
+    @NotBlank(message = "first name cannot be empty")
     private String firstName;
+
+    @NotBlank(message = "last name cannot be empty")
     private String lastName;
+
+    @NotBlank(message = "date of birth cannot be empty")
     private String dateOfBirth;
+
+    @Min(value = 0, message = "salary must be a positive number")
     private String salary;
+
+    @NotBlank(message = "join date cannot be empty")
     private String joinDate;
+
+    @NotBlank(message = "department cannot be empty")
     private String departement;
 
     private EmployeeDto(EmployeeDto.Builder builder) {

@@ -36,13 +36,13 @@ public class EmployeeController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public EmployeeDto createEmployee(@RequestBody EmployeeDto employeeDto) throws IOException {
+    public EmployeeDto createEmployee(@Valid @RequestBody EmployeeDto employeeDto) throws IOException {
         Long employeeId = this.employeeService.createEmployee(ModelAssembler.assemble(employeeDto));
         return DtoAssembler.assemble(Employee.builder().id(employeeId).build());
     }
 
     @PatchMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public EmployeeDto updateEmployee(@RequestBody EmployeeDto employeeDto) throws IOException, EmployeeNotFoundException {
+    public EmployeeDto updateEmployee(@Valid @RequestBody EmployeeDto employeeDto) throws IOException, EmployeeNotFoundException {
         Employee employee = ModelAssembler.assemble(employeeDto);
         this.employeeService.updateEmployee(employee);
         return DtoAssembler.assemble(employee);
