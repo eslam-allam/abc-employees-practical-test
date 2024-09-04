@@ -1,11 +1,13 @@
-POST http://localhost:8080/employees
+@id=2
+PATCH http://localhost:8080/employees
 Content-Type: application/json
 
 {
+    "id": "{{id}}",
     "firstName": "Eslam",
     "lastName": "Allam",
     "dateOfBirth": "2000-01-01",
-    "salary": "1000",
+    "salary": "7000",
     "joinDate": "2023-05-18",
     "departement": "Support"
 }

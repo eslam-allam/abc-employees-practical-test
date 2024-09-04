@@ -1,0 +1,4 @@
+@name=ah
+@fromSalary=100
+@toSalary=2000
+GET http://localhost:8080/employees?name={{name}}&fromSalary={{fromSalary}}&toSalary={{toSalary}}
