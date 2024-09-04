@@ -14,6 +14,7 @@ import java.nio.file.StandardOpenOption;
 import java.rmi.UnexpectedException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.ReadWriteLock;
@@ -221,7 +222,8 @@ public class FileBasedEmployeeRepository implements EmployeeRepository {
     public List<Employee> findByFilter(EmployeeFilter filter) throws IOException {
         List<Predicate<Employee>> filters = new ArrayList<>();
         if (filter.getName() != null && !filter.getName().isEmpty()) {
-            filters.add(e -> e.firstName().contains(filter.getName()) || e.lastName().contains(filter.getName()));
+            filters.add(e -> e.firstName().toLowerCase(Locale.ROOT).contains(filter.getName().toLowerCase(Locale.ROOT))
+                    || e.lastName().toLowerCase(Locale.ROOT).contains(filter.getName().toLowerCase(Locale.ROOT)));
         }
         if (filter.getFromSalary() != null && !filter.getFromSalary().isEmpty()) {
             filters.add(
