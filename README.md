@@ -9,6 +9,8 @@
 
 ## How to Use
 
+> This project is using Java 21
+
 - Go to [application.properties](./src/main/resources/application.properties)
   and change the **spring.data.fs.path** property to the full path where you
   want the employee data to reside (intermediate directories will be created automatically).
