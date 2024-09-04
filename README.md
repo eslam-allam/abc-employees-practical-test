@@ -11,7 +11,7 @@
 
 - Go to [application.properties](./src/main/resources/application.properties)
   and change the **spring.data.fs.path** property to the full path where you
-  want the employee data to reside.
+  want the employee data to reside (intermediate directories will be created automatically).
 - Run the app using `gradlew bootRun` or `sudo gradlew bootRun` if the data path
   requires elevated permissions.
 - Sample requests can be found in the [rest](./rest) directory.
