@@ -1,12 +1,18 @@
 package com.abc.employees.model;
 
+import jakarta.validation.constraints.Min;
+
 /**
  * EmployeeFilter
  */
 public class EmployeeFilter {
 
     private String name;
+
+    @Min(value = 0, message = "from salary must be a positive number")
     private String fromSalary;
+
+    @Min(value = 0, message = "to salary must be a positive number")
     private String toSalary;
 
     public String getName() {

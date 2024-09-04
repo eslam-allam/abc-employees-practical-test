@@ -20,6 +20,8 @@ import com.abc.employees.model.EmployeeDto;
 import com.abc.employees.model.EmployeeFilter;
 import com.abc.employees.service.EmployeeService;
 
+import jakarta.validation.Valid;
+
 /**
  * EmployeeController
  */
@@ -52,7 +54,7 @@ public class EmployeeController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<EmployeeDto> filterEmployees(EmployeeFilter filter) throws IOException {
+    public List<EmployeeDto> filterEmployees(@Valid EmployeeFilter filter) throws IOException {
         return DtoAssembler.assembleEmployees(this.employeeService.filterEmployees(filter));
     }
 }
