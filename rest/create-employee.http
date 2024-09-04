@@ -1,0 +1,39 @@
+POST http://localhost:8080/employees
+Content-Type: application/json
+
+{
+    "firstName": "Eslam",
+    "lastName": "Allam",
+    "dateOfBirth": "2000-01-01",
+    "salary": "1000",
+    "joinDate": "2023-05-18",
+    "departement": "Support"
+}
+
+###
+
+
+PATCH http://localhost:8080/employees
+Content-Type: application/json
+
+{
+    "id": 11,
+    "firstName": "Eslam",
+    "lastName": "Allam",
+    "dateOfBirth": "2000-01-01",
+    "salary": "7000",
+    "joinDate": "2023-05-18",
+    "departement": "Support"
+}
+
+###
+
+@id=3
+GET http://localhost:8080/employees/{{id}}
+
+###
+
+@name=ah
+@fromSalary=100
+@toSalary=2000
+GET http://localhost:8080/employees?name={{name}}&fromSalary={{fromSalary}}&toSalary={{toSalary}}
