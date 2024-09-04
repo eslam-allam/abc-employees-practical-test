@@ -1,11 +1,13 @@
 package com.abc.employees.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * EmployeeDto
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonDeserialize(builder = EmployeeDto.Builder.class)
 public class EmployeeDto {
 
@@ -59,7 +61,7 @@ public class EmployeeDto {
         return new Builder();
     }
 
-    public static class Builder {
+    public static final class Builder {
         private Long id;
         private String firstName;
         private String lastName;
